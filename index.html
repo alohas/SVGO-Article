@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>
+        GO SVG!<br />
+        SAVE SPACE AND ENEGRGY!
+      </h1>
+      <h2>What Is An Svg?</h2>
+      <p>
+        SVG (Scalable Vector Graphics) is a resolution-independent graphics
+        format. The big advantage is that SVGs look awesome on retina sdevices
+        and work on the responsive web.
+      </p>
+      <h2>Why Use An SVG?</h2>
+      <p>
+        As mentioned, SVGs are resolution-independent graphics when most common
+        images are pixel-based. This means that we don't have tu use
+        Photoshop-based apps to change resolution and export over again. It
+        doesn't matter if you draw your own SVGs or grab them from the web, most
+        of the times such artworks are not produced with the web in mind. This
+        means that you might find they’re filled with over-complicated paths.
+        Also, since SVGs are XML-based, looking into the source code often shows
+        a lots of unnecessary markup. The complexity of the markup increases
+        file sizes and negatively impacts performance of the website.
+      </p>
+      <h2>Let's Go!!</h2>
+      <p class="sub">
+        For this example I will be using my Illustration:
+      </p>
+      <div class="containerPNG">
+        <img class="png" src="/img/rx7_png.png" alt="car" />
+      </div>
+      <p>
+        I exported this artboard as 900x600px PNG. The weight of this file is
+        66.5KB and we can only scale it down to preserve quality when an SVG
+        file can be scaled how ever you want!
+      </p>
+      <p class="sub">SVG version of this Image:</p>
+      <div class="containerSVG">
+        <img src="/svg/rx7.original.svg" alt="car" />
+      </div>
+      <p>
+        The weight of this SVG is 44KB.
+      </p>
+      <p>
+        So if we saved our artboard as an SVG, we already save 20KB of space for
+        one image and quality increases immeasurably! Awesome! Right?
+      </p>
+      <p class="sub">
+        Here's an example how Adobe Illustrator generates code for your SVG
+        file:
+      </p>
+      <div class="containerAnnot">
+        <img class="annot" src="/annotations/snippet_1.png" alt="annotation" />
+      </div>
+      <p>It is almost 500 lines for my illustration! This is a lot.</p>
+      <p>
+        And now comes the question: "Can we optimise it even more? And do we
+        need all those lines of code?"
+      </p>
+      <p>
+        This is the part where
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.npmjs.com/package/svgo"
+          >SVGO</a
+        >
+        comes to help!
+      </p>
+
+      <h2>What Is SVGO?</h2>
+      <p>
+        SVG Optimizer is a Nodejs-based tool for optimizing SVG vector graphics
+        files.
+      </p>
+
+      <p>
+        SVGO runs on
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://nodejs.org/en/"
+          >Node.js</a
+        >, an asynchronous, event-driven runtime to build scalable network
+        applications. You don’t need to know how to build applications with
+        Node.js to work with SVGO. Because you will only need your terminal to
+        operate it!
+      </p>
+      <h2>How To Install?</h2>
+      <p>
+        First of all, you just have to install
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://nodejs.org/en/"
+          >Node.js</a
+        >
+        by downloading the latest stable version for your operating system and
+        follow the instructions in the installer.
+      </p>
+      <p>
+        Next, you install SVGO by using Node’s package manager. By typing this
+        in your terminal:
+      </p>
+      <pre>
+        <code>  npm install -g svgo</code>
+      </pre>
+      <p>
+        Now, you have installed SVGO globally in your computer so you can use it
+        anywhere at any time.
+      </p>
+      <h2>How To Use It?</h2>
+      <p>
+        For most of us - basic developers, using default settings, it is enough.
+      </p>
+      <p>Here's an exmaple how to do it with only one command:</p>
+      <pre>
+        <code>  svgo filename.svg</code>
+      </pre>
+      <p>
+        Using this command will optimise your SVG automatically. However, it
+        will replace your original file with optimised one.
+      </p>
+      <p>
+        I wouldn't recomend using this way because if you want to make any
+        changes to it, your editor like Adobe Illustrator might not recognize
+        the file anymore.
+      </p>
+      <p>
+        To prevent that I recomend defining an output with a folowing command:
+      </p>
+      <pre>
+        <code>  svgo filename.svg -o filename.min.svg</code>
+      </pre>
+      <p>
+        Now, you have two SVG files: filename.svg, which is the original file,
+        and a new one optimised file: filename.min.svg!
+      </p>
+      <p class="sub">Let's try this on my example:</p>
+
+      <div class="containerAnnot">
+        <img class="annot" src="annotations/snippet_2.png" alt="snippet" />
+      </div>
+
+      <p>
+        If you open filename.min.svg in a text-based editor, you will see a one
+        long line of code, which means a much smaller file size. In my condition
+        it saved me 24.3% of file size. But this is percentage from my original
+        SVG. So if we look back at my PNG file, we can see that I have already
+        saved around 50% from original 66.5KB!
+      </p>
+      <p>
+        Here is how filename.min.svg (my case - rx7.min.svg) looks like after
+        clean up!
+      </p>
+      <div class="containerSVG">
+        <img src="/svg/rx7.min.svg" alt="car" />
+      </div>
+      <p>
+        Looks completely the same, but weighs much less! And this is what we
+        needed in the first place!
+      </p>
+      <h2>What Can We Do More?</h2>
+      <p>
+        To customize the output SVGO generated files,we can enable or disable
+        plugins. Full list of plugins can be found at
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/svg/svgo/"
+          >GitHub</a
+        >. However, for a basic user default options are the most optimal
+        solution.
+      </p>
+      <p>
+        Let's try some out a disabled by default plugin. I will use reusePaths,
+        which has to be insdide --enable=''. Here is how the whole command looks
+        like:
+      </p>
+      <pre>
+        <code>  svgo filename.svg -o filename.custom.min.svg --enable='reusePaths'</code>
+      </pre>
+      <p class="sub">Here's a snippet of my case:</p>
+      <div class="containerAnnot">
+        <img class="annot" src="annotations/snippet_3.png" alt="snippet" />
+      </div>
+      <p>
+        We saved a little bit more space, but take A look what happened to my
+        example SVG:
+      </p>
+      <div class="containerSVG">
+        <img src="svg/rx7.custom.min.svg" alt="car" />
+      </div>
+      <p>
+        We lost couple paths which destroys the illustration. And this is
+        exactly what we want to avoid if using these complex svg files.
+      </p>
+      <h2>
+        Conclusion
+      </h2>
+      <p>
+        If you like to have your code optimised and a short page load time, it
+        is a must to use SVGs as much as possible. For even more Optimisation
+        SVGO is an awesome free tool that can be used by everyone to reeduce
+        size of SVGs by editing the SVG code.
+      </p>
+      <h2>Links:</h2>
+      <p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://nodejs.org/en/"
+          >Get Node.js</a
+        ><br />
+
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/svg/svgo/"
+          >Documentation of SVGO</a
+        >
+      </p>
+      </div>
+    </div>
+  </body>
+  <footer>
+      <h3>Written by:<br>Dominykas Kutka,<br>2019</h3>
+      
+      <p><a
+      href="https://www.instagram.com/mediakutka/"
+      target="_blank"
+      rel="noopener noreferrer"
+      >MORE OF MY ILLUSTRATIONS</a
+    ></p>
+    </footer>
+</html>

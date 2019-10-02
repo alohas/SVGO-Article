@@ -1,0 +1,106 @@
+@import url("https://use.typekit.net/uve2roh.css");
+
+html {
+  background-color: rgb(36, 36, 36);
+  color: white;
+}
+body {
+  background-color: #4c4a82;
+  border-radius: 20px;
+}
+.wrap {
+  margin: 0 5vw;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+h1,
+h2,
+h3 {
+  font-family: paralucent, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+}
+h1 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 10vw;
+  border-bottom: solid black;
+}
+h2 {
+  font-size: 7vw;
+}
+p {
+  font-family: fira-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p.sub {
+  color: #8f8f8f;
+}
+a {
+  color: #00ff00;
+}
+
+.png,
+.annot {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.containerSVG {
+  text-align: center;
+}
+pre {
+  overflow: auto;
+  background-color: black;
+  padding: 5px;
+  height: 65px;
+  max-width: 500px;
+}
+
+code {
+  display: block;
+  width: auto;
+}
+
+footer {
+  background-color: #68669b;
+  border-radius: 20px;
+  padding: 15px;
+}
+footer h3,
+footer p {
+  margin: 0;
+  text-align: center;
+}
+
+footer p a {
+  color: yellow;
+}
+
+/* LFOTN SIZES */
+
+@media screen and (min-width: 500px) {
+  h1 {
+    font-size: 50px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+/* LAYOUT */
+
+@media screen and (min-width: 768px) {
+  body {
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-bottom: 50px;
+  }
+}
